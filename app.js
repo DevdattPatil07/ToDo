@@ -52,7 +52,7 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-    res.send("Welcome to my app");
+    res.render("/login");
 });
 
 app.get("/login", (req, res) => {
@@ -105,15 +105,16 @@ app.post("/register", async (req, res) => {
     try {
         const userDB = await user.save();
         console.log(userDB);
-        return res.send({
-            status: 201,
-            message: "Registered Successfully ",
-            data: {
-                _id: userDB._id,
-                username: userDB.username,
-                email: userDB.email,
-            },
-        });
+        res.redirect("/login");
+        // return res.send({
+        //     status: 201,
+        //     message: "Registered Successfully ",
+        //     data: {
+        //         _id: userDB._id,
+        //         username: userDB.username,
+        //         email: userDB.email,
+        //     },
+        // });
     } catch (err) {
         return res.send({
             status: 400,
