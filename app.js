@@ -365,6 +365,7 @@ app.post("/delete-item", isAuth, async (req, res) => {
     }
 });
 
-app.listen(8000, () => {
-    console.log("Listening to post 8000");
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+    console.log(`Listening to post ${PORT}`);
 });
