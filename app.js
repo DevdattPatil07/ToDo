@@ -52,7 +52,7 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-    res.render("/login");
+    res.send("Welcome to my app");
 });
 
 app.get("/login", (req, res) => {
